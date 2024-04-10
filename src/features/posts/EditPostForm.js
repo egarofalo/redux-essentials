@@ -6,9 +6,7 @@ import { useHistory } from 'react-router-dom'
 const EditPostForm = ({ match }) => {
   const { postId } = match.params
 
-  const post = useSelector((state) =>
-    state.posts.find((post) => post.id === postId),
-  )
+  const post = useSelector((state) => selectPostById(state, postId))
 
   if (!post) {
     return (
